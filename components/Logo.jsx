@@ -12,7 +12,7 @@ export default function Logo({ variant = 'dark' }) {
         <span className={`block font-display text-[17px] font-extrabold tracking-tight ${light ? 'text-white' : 'text-navy'}`}>
           Airlines Group Bookings
         </span>
-        <span className={`mt-1 block font-mono text-[9px] uppercase tracking-[0.24em] ${light ? 'text-white/50' : 'text-navy/45'}`}>
+        <span className={`mt-1 block font-mono text-[9px] uppercase tracking-[0.24em] max-[452px]:hidden ${light ? 'text-white/50' : 'text-navy/45'}`}>
           Seamless Solutions for Group Travel
         </span>
       </span>
