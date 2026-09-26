@@ -1,14 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { footerLinks, site } from '@/data/site';
 import Logo from '@/components/Logo';
 import { airlines } from '@/data/airlines';
 
 const socials = [
-  { Icon: Facebook, label: 'Facebook' },
-  { Icon: Instagram, label: 'Instagram' },
-  { Icon: Twitter, label: 'X' },
-  { Icon: Linkedin, label: 'LinkedIn' },
+  { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61594790276864' },
+  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/_airlinesgroupbookings/' },
+  { Icon: Twitter, label: 'X', href: 'https://x.com/Airlinesgrx9o' },
+  { Icon: Linkedin, label: 'LinkedIn', href: '#' },
 ];
 
 export default function Footer() {
@@ -32,16 +33,28 @@ export default function Footer() {
             corporate teams, student tours, weddings, and community trips, booked at the best possible fares.
           </p>
           <div className="mt-7 flex gap-2">
-            {socials.map(({ Icon, label }) => (
+            {socials.map(({ Icon, label, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target={href !== '#' ? '_blank' : undefined}
+                rel={href !== '#' ? 'noopener noreferrer' : undefined}
                 aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/12 text-white/60 transition-colors hover:border-gold hover:bg-gold hover:text-navy"
               >
                 <Icon size={15} />
               </a>
             ))}
+          </div>
+
+          <div className="mt-7 inline-flex items-center gap-2">
+            <Image
+              src="/ARC-logo.png"
+              alt="ARC accredited agency"
+              width={150}
+              height={62}
+              className="h-10 w-auto transition-all duration-200 hover:brightness-0 hover:invert"
+            />
           </div>
         </div>
 
