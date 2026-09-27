@@ -5,6 +5,17 @@ import { footerLinks, site } from '@/data/site';
 import Logo from '@/components/Logo';
 import { airlines } from '@/data/airlines';
 
+const badges = [
+  { src: '/ARC-logo.png', alt: 'ARC accredited agency', width: 149, height: 59 },
+  { src: '/iata-logo-header.svg', alt: 'IATA', width: 67, height: 42 },
+  { src: '/visa.png', alt: 'Visa', width: 160, height: 103 },
+  { src: '/master.png', alt: 'Mastercard', width: 160, height: 103 },
+  { src: '/americon.png', alt: 'American Express', width: 160, height: 99 },
+  { src: '/discover.png', alt: 'Discover', width: 160, height: 103 },
+  { src: '/paypal.png', alt: 'PayPal', width: 160, height: 94 },
+  { src: '/cloudflare-logo.webp', alt: 'Cloudflare secured', width: 115, height: 40 },
+];
+
 const socials = [
   { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61594790276864' },
   { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/_airlinesgroupbookings/' },
@@ -45,16 +56,6 @@ export default function Footer() {
                 <Icon size={15} />
               </a>
             ))}
-          </div>
-
-          <div className="mt-7 inline-flex items-center gap-2">
-            <Image
-              src="/ARC-logo.png"
-              alt="ARC accredited agency"
-              width={150}
-              height={62}
-              className="h-10 w-auto transition-all duration-200 hover:brightness-0 hover:invert"
-            />
           </div>
         </div>
 
@@ -127,6 +128,21 @@ export default function Footer() {
           logos are the property of their respective owners and are used only to describe the group fares we can
           arrange. Fares are subject to availability and confirmed at the time of booking.
         </p>
+
+        <div className="mt-8 rounded-xl bg-white px-6 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-10">
+            {badges.map((b) => (
+              <Image
+                key={b.src}
+                src={b.src}
+                alt={b.alt}
+                width={b.width}
+                height={b.height}
+                className="h-8 w-auto object-contain sm:h-9"
+              />
+            ))}
+          </div>
+        </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.07] pt-8 text-[12px] text-white/35 sm:flex-row">
           <p>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
