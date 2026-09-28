@@ -6,8 +6,8 @@ import Logo from '@/components/Logo';
 import { airlines } from '@/data/airlines';
 
 const badges = [
-  { src: '/ARC-logo.png', alt: 'ARC accredited agency', width: 149, height: 59 },
-  { src: '/iata-logo-header.svg', alt: 'IATA', width: 67, height: 42 },
+  // { src: '/ARC-logo.png', alt: 'ARC accredited agency', width: 149, height: 59 },
+  // { src: '/iata-logo-header.svg', alt: 'IATA', width: 67, height: 42 },
   { src: '/visa.png', alt: 'Visa', width: 160, height: 103 },
   { src: '/master.png', alt: 'Mastercard', width: 160, height: 103 },
   { src: '/americon.png', alt: 'American Express', width: 160, height: 99 },
