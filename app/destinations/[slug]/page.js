@@ -51,10 +51,12 @@ export default function DestinationPage({ params }) {
               <p className="mt-2 text-sm leading-relaxed text-navy/55">
                 Call with your dates and headcount for a live fare check on this route.
               </p>
+              {/*
               <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
                 <Phone size={17} strokeWidth={2.5} />
                 Call {site.phone}
               </a>
+              */}
             </div>
           </Reveal>
         </div>

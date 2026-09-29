@@ -244,7 +244,7 @@ export default function Privacy() {
           If you have questions about either this Privacy Policy (or your travel planning or purchases), please
           email us at{' '}
           <a className="font-semibold text-navy underline" href={`mailto:${site.email}`}>{site.email}</a> or contact
-          us at {site.legalName} · {site.address.join(', ')} · {site.phone}.
+          us at {site.legalName} · {site.address.join(', ')}{/* · {site.phone} */}.
         </p>
         <p>This Privacy Policy is effective as of September 6th, 2026.</p>
       </div>

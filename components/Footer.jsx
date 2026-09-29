@@ -25,7 +25,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy pb-28 pt-20 text-white sm:pb-12">
+    <footer className="bg-navy pb-12 pt-20 text-white">
       <div className="mb-16 overflow-hidden border-y border-white/[0.07] py-4">
         <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
           {[...airlines, ...airlines].map((a, i) => (
@@ -101,11 +101,13 @@ export default function Footer() {
             {site.address.map((l) => (
               <li key={l}>{l}</li>
             ))}
+            {/*
             <li>
               <a href={site.phoneHref} className="transition-colors hover:text-white">
                 {site.phone}
               </a>
             </li>
+            */}
             <li>
               <a href={`mailto:${site.email}`} className="transition-colors hover:text-white">
                 {site.email}
@@ -145,7 +147,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.07] pt-8 text-[12px] text-white/35 sm:flex-row">
-          <p>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()}{/* {site.legalName}. */} All rights reserved.</p>
           <p className="font-mono uppercase tracking-[0.16em]">{site.domain}</p>
         </div>
       </div>

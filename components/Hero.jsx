@@ -145,10 +145,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
+            {/*
             <a href={site.phoneHref} className="btn-gold py-4 text-base">
               <Phone size={18} strokeWidth={2.5} />
               Call {site.phone}
             </a>
+            */}
             <a href="#travel-in-groups" className="btn border border-white/15 text-white hover:border-white/45 hover:bg-white/5">
               See airline partners
             </a>

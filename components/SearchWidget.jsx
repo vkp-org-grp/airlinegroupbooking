@@ -369,11 +369,13 @@ export default function SearchWidget() {
           We&apos;ve received your request for a group booking. One of our specialised travel consultants will
           contact you within 24 business hours.
         </p>
+        {/*
         <a href={site.phoneHref} className="btn-gold mt-5 w-full">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>
-        <button type="button" onClick={closeModal} className="btn-navy mt-3 w-full py-3 text-sm">
+        */}
+        <button type="button" onClick={closeModal} className="btn-navy mt-5 w-full py-3 text-sm">
           OK
         </button>
       </ThankYouModal>

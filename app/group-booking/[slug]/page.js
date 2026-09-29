@@ -29,7 +29,7 @@ export default function AirlinePage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: `${a.name} Group Flight Booking`,
-    provider: { '@type': 'TravelAgency', name: site.name, telephone: site.phone },
+    provider: { '@type': 'TravelAgency', name: site.name /*, telephone: site.phone */ },
     areaServed: 'US',
   };
 
@@ -88,10 +88,12 @@ export default function AirlinePage({ params }) {
                   Call with your route, dates, and headcount — a specialist checks live {a.short} group availability
                   while you&apos;re on the line.
                 </p>
+                {/*
                 <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
                   <Phone size={17} strokeWidth={2.5} />
                   Call {site.phone}
                 </a>
+                */}
               </div>
             </div>
           </Reveal>

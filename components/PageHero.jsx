@@ -27,10 +27,12 @@ export default function PageHero({ eyebrow, title, body, img, meta }) {
             ))}
           </dl>
         )}
+        {/*
         <a href={site.phoneHref} className="btn-gold mt-8">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>
+        */}
       </div>
     </section>
   );

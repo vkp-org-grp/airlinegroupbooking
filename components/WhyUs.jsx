@@ -47,10 +47,12 @@ export default function WhyUs() {
         </Reveal>
 
         <Reveal delay={0.2} className="mt-12 flex flex-wrap items-center gap-4">
+          {/*
           <a href={site.phoneHref} className="btn-gold">
             <Phone size={16} strokeWidth={2.5} />
             Call {site.phone}
           </a>
+          */}
           <span className="text-sm text-white/50">Confirm your group fare in minutes.</span>
         </Reveal>
       </div>

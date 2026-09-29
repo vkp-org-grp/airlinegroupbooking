@@ -11,7 +11,8 @@ export const whyUs = [
   },
   {
     title: 'Instant booking by phone',
-    body: `Call ${site.phone} and a group specialist checks live availability across airlines while you're on the line.`,
+    // body: `Call ${site.phone} and a group specialist checks live availability across airlines while you're on the line.`,
+    body: `A group specialist checks live availability across airlines while you're on the line.`,
   },
   {
     title: 'Easy group fare requests',

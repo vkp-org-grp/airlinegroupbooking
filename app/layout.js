@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <CallBar />
+        {/* <CallBar /> */}
       </body>
     </html>
   );

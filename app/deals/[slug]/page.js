@@ -54,10 +54,12 @@ export default function DealPage({ params }) {
                 Deal windows and price points vary by route and travel date. Call with your details and a specialist
                 will confirm honestly what applies.
               </p>
+              {/*
               <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
                 <Phone size={17} strokeWidth={2.5} />
                 Call {site.phone}
               </a>
+              */}
             </div>
           </Reveal>
         </div>

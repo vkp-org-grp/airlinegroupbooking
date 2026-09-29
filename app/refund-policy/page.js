@@ -35,7 +35,8 @@ export default function Refund() {
       <div>
         <h2>How to request a refund</h2>
         <p>
-          Call {site.phone} with your group booking reference, or email {site.email}. We confirm what your fare
+          {/* Call {site.phone} with your group booking reference, or email {site.email}. */}
+          Email {site.email} with your group booking reference. We confirm what your fare
           allows, file the request, and give you a reference number to track it.
         </p>
       </div>

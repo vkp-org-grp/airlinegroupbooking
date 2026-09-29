@@ -16,7 +16,7 @@ const jsonLd = {
       '@type': 'TravelAgency',
       name: site.name,
       url: site.url,
-      telephone: site.phone,
+      // telephone: site.phone,
       email: site.email,
       address: {
         '@type': 'PostalAddress',

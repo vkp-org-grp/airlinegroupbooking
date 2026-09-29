@@ -123,11 +123,13 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+          {/*
           <a href={site.phoneHref} className="btn-gold hidden py-3 text-[13px] sm:inline-flex">
             <Phone size={16} strokeWidth={2.5} />
             {site.phone}
           </a>
+          */}
 
           <button
             type="button"
@@ -198,10 +200,12 @@ export default function Header() {
                 </div>
               ))}
 
+              {/*
               <a href={site.phoneHref} className="btn-gold mt-5">
                 <Phone size={16} strokeWidth={2.5} />
                 Call {site.phone}
               </a>
+              */}
             </div>
           </motion.div>
         )}

@@ -122,6 +122,7 @@ export default function GroupTravelGuide({ airlineName }) {
                   Finalize the option as per your needs. Make a deposit to block seats for your group, and your
                   booking will be confirmed.
                 </p>
+                {/*
                 <p>
                   For immediate assistance, you may also call us at{' '}
                   <a href={site.phoneHref} className="font-semibold text-navy underline">
@@ -129,6 +130,7 @@ export default function GroupTravelGuide({ airlineName }) {
                   </a>
                   .
                 </p>
+                */}
               </div>
 
               <div>

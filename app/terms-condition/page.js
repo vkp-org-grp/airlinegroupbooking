@@ -316,7 +316,7 @@ export default function Terms() {
         <h2>No dispute clause</h2>
         <p>
           Once services are issued — whether tickets, itineraries, or any related services — customers agree to
-          contact the Company at {site.phone} or {site.email} before initiating a payment dispute, so that any
+          contact the Company at {/* {site.phone} or */} {site.email} before initiating a payment dispute, so that any
           billing concerns may be reviewed and resolved promptly. Nothing in these terms limits any rights available
           under applicable law or payment network rules. This includes, but is not limited to, claims related to
           dissatisfaction with the service, perceived overcharges, or changes in travel plans.
@@ -481,7 +481,7 @@ export default function Terms() {
 
       <div>
         <h2>Contact</h2>
-        <p>Questions about these terms: {site.email} · {site.phone}</p>
+        <p>Questions about these terms: {site.email}{/* · {site.phone} */}</p>
       </div>
     </LegalPage>
   );

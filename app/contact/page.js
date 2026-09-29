@@ -71,6 +71,7 @@ export default function Contact() {
         <div className="wrap grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Reveal>
             <div className="space-y-5">
+              {/*
               <a href={site.phoneHref} className="group flex items-start gap-4">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold text-navy">
                   <Phone size={17} strokeWidth={2.5} />
@@ -80,6 +81,7 @@ export default function Contact() {
                   <span className="mt-1 block font-display text-lg font-bold group-hover:underline">{site.phone}</span>
                 </span>
               </a>
+              */}
 
               <a href={`mailto:${site.email}`} className="group flex items-start gap-4">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy/5 text-navy">
@@ -172,11 +174,13 @@ export default function Contact() {
           We&apos;ve received your request for a group booking. One of our specialised travel consultants will
           contact you within 24 business hours.
         </p>
+        {/*
         <a href={site.phoneHref} className="btn-gold mt-5 w-full">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>
-        <button type="button" onClick={closeModal} className="btn-navy mt-3 w-full py-3 text-sm">
+        */}
+        <button type="button" onClick={closeModal} className="btn-navy mt-5 w-full py-3 text-sm">
           OK
         </button>
       </ThankYouModal>
