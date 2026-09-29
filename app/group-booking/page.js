@@ -48,7 +48,7 @@ export default function GroupBookingIndex() {
           </Reveal>
         </div>
       </section>
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }

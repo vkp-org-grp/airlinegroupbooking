@@ -62,7 +62,7 @@ export default function DestinationPage({ params }) {
         </div>
       </section>
 
-      <CTASection heading={`Ready to book ${d.name}?`} />
+      {/* <CTASection heading={`Ready to book ${d.name}?`} /> */}
     </>
   );
 }

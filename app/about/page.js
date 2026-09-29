@@ -79,7 +79,7 @@ export default function About() {
       </section>
 
       <Testimonials />
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }

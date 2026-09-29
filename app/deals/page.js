@@ -36,7 +36,7 @@ export default function DealsIndex() {
           </Reveal>
         </div>
       </section>
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }

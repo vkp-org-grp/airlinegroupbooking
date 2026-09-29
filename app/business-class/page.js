@@ -47,7 +47,7 @@ export default function BusinessClassIndex() {
           </Reveal>
         </div>
       </section>
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }

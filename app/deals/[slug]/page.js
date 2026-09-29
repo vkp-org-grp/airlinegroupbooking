@@ -65,7 +65,7 @@ export default function DealPage({ params }) {
         </div>
       </section>
 
-      <CTASection heading={`Ready to book ${d.name.toLowerCase()}?`} />
+      {/* <CTASection heading={`Ready to book ${d.name.toLowerCase()}?`} /> */}
     </>
   );
 }

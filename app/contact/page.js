@@ -65,7 +65,8 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero eyebrow="Contact" title="Get in touch" body="Fastest route is the phone — group inventory shifts while a form sits in an inbox. Prefer to write? Send the details and the desk will call you back." />
+      {/* <PageHero eyebrow="Contact" title="Get in touch" body="Fastest route is the phone — group inventory shifts while a form sits in an inbox. Prefer to write? Send the details and the desk will call you back." /> */}
+      <PageHero eyebrow="Contact" title="Get in touch" body="Send your route, dates, and headcount — the group desk replies within 24 business hours." />
 
       <section className="bg-white py-20">
         <div className="wrap grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">

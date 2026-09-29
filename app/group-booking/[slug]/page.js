@@ -102,7 +102,7 @@ export default function AirlinePage({ params }) {
 
       <GroupTravelGuide airlineName={a.name} />
 
-      <CTASection heading={`Ready to book ${a.short}?`} body={`Confirm your ${a.short} group fare in minutes.`} />
+      {/* <CTASection heading={`Ready to book ${a.short}?`} body={`Confirm your ${a.short} group fare in minutes.`} /> */}
     </>
   );
 }

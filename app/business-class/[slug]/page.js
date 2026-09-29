@@ -84,7 +84,7 @@ export default function BusinessClassPage({ params }) {
         </div>
       </section>
 
-      <CTASection heading={`Ready to book ${b.cabin}?`} body="Premium group seats move fast — call to confirm availability." />
+      {/* <CTASection heading={`Ready to book ${b.cabin}?`} body="Premium group seats move fast — call to confirm availability." /> */}
     </>
   );
 }

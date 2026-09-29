@@ -29,7 +29,7 @@ export default function DestinationsIndex() {
           </Reveal>
         </div>
       </section>
-      <CTASection />
+      {/* <CTASection /> */}
     </>
   );
 }
