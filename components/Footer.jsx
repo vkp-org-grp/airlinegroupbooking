@@ -126,12 +126,14 @@ export default function Footer() {
         </p>
         */}
 
+        {/*
         <p className="mt-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/35">
           {site.name} is a service of {site.legalName}, an independent travel agency. We are not an airline and are
           not affiliated with, endorsed by, or acting on behalf of any airline named on this site. Airline names and
           logos are the property of their respective owners and are used only to describe the group fares we can
           arrange. Fares are subject to availability and confirmed at the time of booking.
         </p>
+        */}
 
         <div className="mt-8 rounded-xl bg-white px-6 py-6">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-10">
