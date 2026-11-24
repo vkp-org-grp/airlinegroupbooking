@@ -1,5 +1,6 @@
 import './globals.css';
 import { Bricolage_Grotesque, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
+import Script from 'next/script';
 import { site } from '@/data/site';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -50,7 +51,12 @@ export const metadata = {
     type: 'website',
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: '8qkMY136L68fFsYxENUziw27qeC4XCM6REL_WMZ_fk8',
+  },
 };
+
+const GTM_ID = 'GTM-T8BR6W2Q';
 
 export const viewport = { themeColor: '#0B1E3A' };
 
@@ -58,6 +64,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
+        <Script id="gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
+        </Script>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <Header />
         <main id="main">{children}</main>
         <Footer />
