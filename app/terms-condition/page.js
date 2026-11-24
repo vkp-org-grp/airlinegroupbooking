@@ -10,7 +10,7 @@ export default function Terms() {
         <h2>General Terms &amp; Conditions</h2>
         <p>
           Please be advised of the following legally binding Terms and Conditions governing travel services arranged
-          by {site.legalName} (&quot;the Company&quot;) dba {site.domain}, registered at {site.address.join(', ')},
+          by {site.legalName} (&quot;the Company&quot;) dba {site.domain}{/* , registered at {site.address.join(', ')} */},
           an independent travel agency specializing in group air travel. We are not an airline. Airlines named on
           this site operate the flights and set the fare rules that apply to your ticket.
         </p>

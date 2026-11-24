@@ -7,7 +7,7 @@ export const site = {
   phone: '+1-888-608-7453',
   phoneHref: 'tel:+18886087453',
   email: 'support@airlinesgroupbookings.com',
-  address: ['11961 Cobble Brook Dr', 'Rancho Cordova, CA 95742'],
+  // address: ['11961 Cobble Brook Dr', 'Rancho Cordova, CA 95742'],
 
   hours: '24/7 phone support',
   minGroupSize: 10,

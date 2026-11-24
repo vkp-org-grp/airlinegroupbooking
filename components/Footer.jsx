@@ -98,9 +98,9 @@ export default function Footer() {
         <div>
           <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/55">
-            {site.address.map((l) => (
+            {/* {site.address.map((l) => (
               <li key={l}>{l}</li>
-            ))}
+            ))} */}
             {/*
             <li>
               <a href={site.phoneHref} className="transition-colors hover:text-white">
@@ -118,11 +118,13 @@ export default function Footer() {
       </div>
 
       <div className="wrap mt-16">
+        {/*
         <p className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/35">
           California Seller of Travel <strong className="font-bold text-white/60">Reg. No. 2173867-50</strong>.
           Registration as a seller of travel does not constitute approval by the State of California. Participant in
           the Travel Consumer Restitution Corporation (<strong className="font-bold text-white/60">TCRC-710561</strong>).
         </p>
+        */}
 
         <p className="mt-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/35">
           {site.name} is a service of {site.legalName}, an independent travel agency. We are not an airline and are

@@ -18,11 +18,11 @@ const jsonLd = {
       url: site.url,
       // telephone: site.phone,
       email: site.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: site.address[0],
-        addressLocality: site.address[1],
-      },
+      // address: {
+      //   '@type': 'PostalAddress',
+      //   streetAddress: site.address[0],
+      //   addressLocality: site.address[1],
+      // },
       openingHours: 'Mo-Su 00:00-23:59',
     },
     {
