@@ -1,28 +1,31 @@
 import './globals.css';
-import { Bricolage_Grotesque, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import Script from 'next/script';
 import { site } from '@/data/site';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CallBar from '@/components/CallBar';
 
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
+const display = localFont({
+  src: './fonts/BricolageGrotesque.woff2',
+  weight: '600 800',
   variable: '--font-display',
   display: 'swap',
 });
 
-const body = Instrument_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: './fonts/InstrumentSans.woff2',
+  weight: '400 700',
   variable: '--font-body',
   display: 'swap',
 });
 
-const mono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const mono = localFont({
+  src: [
+    { path: './fonts/IBMPlexMono-400.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/IBMPlexMono-500.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/IBMPlexMono-600.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-mono',
   display: 'swap',
 });
