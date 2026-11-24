@@ -7,6 +7,7 @@ import { Reveal } from '@/components/Motion';
 import { businessClass } from '@/data/businessClass';
 
 export const metadata = {
+  alternates: { canonical: '/business-class/' },
   title: 'Business Class Group Booking — Premium Airline Partners',
   description: 'Negotiated Business and Premium cabin group fares across 12 airline partners for parties of 10 or more.',
 };

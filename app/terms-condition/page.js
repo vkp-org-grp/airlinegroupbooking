@@ -1,7 +1,7 @@
 import LegalPage from '@/components/LegalPage';
 import { site } from '@/data/site';
 
-export const metadata = { title: 'Terms & Conditions' };
+export const metadata = { title: 'Terms & Conditions', alternates: { canonical: '/terms-condition/' } };
 
 export default function Terms() {
   return (

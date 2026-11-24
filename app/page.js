@@ -9,6 +9,10 @@ import Faq from '@/components/Faq';
 import { site } from '@/data/site';
 import { homeFaqs } from '@/data/content';
 
+export const metadata = {
+  alternates: { canonical: '/' },
+};
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [

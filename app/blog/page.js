@@ -7,6 +7,7 @@ import { getAllPosts } from '@/lib/wordpress';
 export const revalidate = 3600; // ISR: refresh at most every hour; instant via /api/revalidate webhook
 
 export const metadata = {
+  alternates: { canonical: '/blog/' },
   title: 'Blog — Group Travel Guides & Airline Tips',
   description: 'Guides on group flight booking, airline group perks, and seasonal fare timing.',
 };

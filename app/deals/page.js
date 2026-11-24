@@ -6,6 +6,7 @@ import { Reveal } from '@/components/Motion';
 import { deals } from '@/data/deals';
 
 export const metadata = {
+  alternates: { canonical: '/deals/' },
   title: 'Special Deals — Seasonal Group Flight Discounts',
   description: 'Seasonal and route-specific group flight discounts — Christmas, Black Friday, last-minute, and more.',
 };

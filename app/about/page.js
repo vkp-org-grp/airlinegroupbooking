@@ -7,6 +7,7 @@ import { stats } from '@/data/content';
 import { site } from '@/data/site';
 
 export const metadata = {
+  alternates: { canonical: '/about/' },
   title: 'About Us',
   description: `About ${site.name} — a dedicated group flight specialist for parties of ${site.minGroupSize} or more.`,
 };

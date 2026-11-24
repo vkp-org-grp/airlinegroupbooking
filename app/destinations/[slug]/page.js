@@ -14,6 +14,7 @@ export function generateMetadata({ params }) {
   const d = getDestination(params.slug);
   if (!d) return {};
   return {
+    alternates: { canonical: `/destinations/${params.slug}/` },
     title: `${d.name} Group Flights — ${d.country}`,
     description: d.summary,
   };

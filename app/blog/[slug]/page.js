@@ -17,6 +17,7 @@ export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
   if (!post) return {};
   return {
+    alternates: { canonical: `/blog/${params.slug}/` },
     title: post.seo?.title || post.title,
     description: post.seo?.metaDesc || post.excerpt?.replace(/<[^>]+>/g, ''),
   };

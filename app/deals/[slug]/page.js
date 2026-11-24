@@ -14,6 +14,7 @@ export function generateMetadata({ params }) {
   const d = getDeal(params.slug);
   if (!d) return {};
   return {
+    alternates: { canonical: `/deals/${params.slug}/` },
     title: `${d.name} — Group Fare Deals`,
     description: d.summary,
   };

@@ -6,6 +6,7 @@ import { Reveal } from '@/components/Motion';
 import { destinations } from '@/data/destinations';
 
 export const metadata = {
+  alternates: { canonical: '/destinations/' },
   title: 'Popular Group Travel Destinations',
   description: 'Group flight destinations — London, Paris, Dubai, Singapore, and more, priced for parties of 10 or more.',
 };

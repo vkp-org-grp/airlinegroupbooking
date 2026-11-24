@@ -16,6 +16,7 @@ export function generateMetadata({ params }) {
   const a = getAirline(params.slug);
   if (!a) return {};
   return {
+    alternates: { canonical: `/group-booking/${params.slug}/` },
     title: `${a.name} Group Booking — Fares for ${site.minGroupSize}+ Passengers`,
     description: `Book ${a.name} group tickets for ${site.minGroupSize} or more passengers. ${a.bestFor}. Get a free group quote by phone.`,
   };

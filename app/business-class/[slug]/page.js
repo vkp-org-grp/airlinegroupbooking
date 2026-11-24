@@ -16,6 +16,7 @@ export function generateMetadata({ params }) {
   const b = getBusinessClass(params.slug);
   if (!b) return {};
   return {
+    alternates: { canonical: `/business-class/${params.slug}/` },
     title: `${b.name} Business Class Group Booking | ${b.cabin}`,
     description: `Group rates on ${b.name} ${b.cabin}. ${b.highlight}. Get a free group quote by phone.`,
   };
