@@ -1,15 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { getAllPosts } from '@/lib/wordpress';
+import { getAllPosts, formatDate } from '@/lib/blog';
 import { Reveal } from '@/components/Motion';
 
-function formatDate(d) {
-  return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-}
-
-export default async function BlogPreview() {
-  const posts = (await getAllPosts()).slice(0, 3);
+export default function BlogPreview() {
+  const posts = getAllPosts().slice(0, 3);
   if (!posts.length) return null;
 
   return (
@@ -32,10 +28,10 @@ export default async function BlogPreview() {
             <Link key={p.slug} href={`/blog/${p.slug}`} className="group card flex flex-col">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src={p.featuredImage?.node?.sourceUrl || '/images/1436491865332-7a61a109cc05.jpg'}
-                  alt={p.featuredImage?.node?.altText || p.title}
+                  src={p.image}
+                  alt={p.imageAlt}
                   fill
-                  unoptimized
+                 
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                 />
@@ -43,10 +39,8 @@ export default async function BlogPreview() {
               <div className="flex flex-1 flex-col p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/40">{formatDate(p.date)}</p>
                 <h3
-                  className="mt-3 font-display text-lg font-bold leading-snug"
-                  dangerouslySetInnerHTML={{ __html: p.title }}
-                />
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/55" dangerouslySetInnerHTML={{ __html: p.excerpt?.replace(/<[^>]+>/g, '') }} />
+                  className="mt-3 font-display text-lg font-bold leading-snug">{p.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/55">{p.excerpt}</p>
                 <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-sky">
                   Read more
                   <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />

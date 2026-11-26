@@ -20,7 +20,7 @@ const socials = [
   { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61594790276864' },
   { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/_airlinesgroupbookings/' },
   { Icon: Twitter, label: 'X', href: 'https://x.com/Airlinesgrx9o' },
-  { Icon: Linkedin, label: 'LinkedIn', href: '#' },
+  // { Icon: Linkedin, label: 'LinkedIn', href: '#' }, // add the profile URL to show this icon
 ];
 
 export default function Footer() {
@@ -48,8 +48,8 @@ export default function Footer() {
               <a
                 key={label}
                 href={href}
-                target={href !== '#' ? '_blank' : undefined}
-                rel={href !== '#' ? 'noopener noreferrer' : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/12 text-white/60 transition-colors hover:border-gold hover:bg-gold hover:text-navy"
               >

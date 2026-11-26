@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Check, Phone } from 'lucide-react';
@@ -55,9 +56,9 @@ export default function BusinessClassPage({ params }) {
             {airline && (
               <p className="mt-8 text-sm text-navy/55">
                 Looking for standard group Economy on {b.name} instead?{' '}
-                <a href={`/group-booking/${airline.slug}`} className="font-semibold text-sky underline">
+                <Link href={`/group-booking/${airline.slug}`} className="font-semibold text-sky underline">
                   See {b.name} group booking
-                </a>
+                </Link>
                 .
               </p>
             )}

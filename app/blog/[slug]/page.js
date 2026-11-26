@@ -3,35 +3,34 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Phone } from 'lucide-react';
 import { Reveal } from '@/components/Motion';
-import { getAllPosts, getPostBySlug, getPostSlugs } from '@/lib/wordpress';
+import { getAllPosts, getPostBySlug, formatDate } from '@/lib/blog';
+import { articles } from '@/components/blog/articles';
 import { site } from '@/data/site';
 
-export const revalidate = 3600;
+export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const slugs = await getPostSlugs();
-  return slugs.map((slug) => ({ slug }));
+export function generateStaticParams() {
+  return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params.slug);
+export function generateMetadata({ params }) {
+  const post = getPostBySlug(params.slug);
   if (!post) return {};
+  const title = post.seoTitle || post.title;
   return {
     alternates: { canonical: `/blog/${params.slug}/` },
-    title: post.seo?.title || post.title,
-    description: post.seo?.metaDesc || post.excerpt?.replace(/<[^>]+>/g, ''),
+    // skip the title template when the title already carries the brand name
+    title: title.includes(site.name) ? { absolute: title } : title,
+    description: post.seoDescription || post.excerpt,
   };
 }
 
-function formatDate(d) {
-  return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-}
+export default function BlogPost({ params }) {
+  const post = getPostBySlug(params.slug);
+  const Article = articles[params.slug];
+  if (!post || !Article) notFound();
 
-export default async function BlogPost({ params }) {
-  const post = await getPostBySlug(params.slug);
-  if (!post) notFound();
-
-  const allPosts = await getAllPosts();
+  const allPosts = getAllPosts();
   const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const jsonLd = {
@@ -40,6 +39,8 @@ export default async function BlogPost({ params }) {
     headline: post.title,
     datePublished: post.date,
     dateModified: post.modified,
+    image: `${site.url}${post.image}`,
+    mainEntityOfPage: `${site.url}/blog/${post.slug}/`,
     publisher: { '@type': 'Organization', name: site.name },
   };
 
@@ -53,26 +54,23 @@ export default async function BlogPost({ params }) {
             <ArrowLeft size={13} />
             All articles
           </Link>
-          <h1 className="h-display mt-6 max-w-[28ch] text-[clamp(2rem,5vw,3.4rem)]" dangerouslySetInnerHTML={{ __html: post.title }} />
+          <h1 className="h-display mt-6 max-w-[28ch] text-[clamp(2rem,5vw,3.4rem)]">{post.title}</h1>
           <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">{formatDate(post.date)}</p>
         </div>
       </article>
 
-      {post.featuredImage?.node?.sourceUrl && (
-        <div className="wrap -mt-10 mb-10">
-          <div className="relative h-[280px] overflow-hidden rounded-2xl shadow-card sm:h-[420px]">
-            <Image src={post.featuredImage.node.sourceUrl} alt={post.featuredImage.node.altText || post.title} fill unoptimized className="object-cover" />
-          </div>
+      <div className="wrap -mt-10 mb-10">
+        <div className="relative h-[280px] overflow-hidden rounded-2xl shadow-card sm:h-[420px]">
+          <Image src={post.image} alt={post.imageAlt} fill priority sizes="100vw" className="object-cover" />
         </div>
-      )}
+      </div>
 
       <section className="bg-white py-20">
         <div className="wrap grid gap-14 lg:grid-cols-[1.265fr_0.765fr] lg:gap-20">
           <Reveal>
-            <div
-              className="prose prose-slate max-w-none prose-headings:font-display prose-headings:font-extrabold prose-a:text-sky"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            <div className="blog-content">
+              <Article />
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
@@ -97,17 +95,16 @@ export default async function BlogPost({ params }) {
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               {related.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`} className="group">
-                  <div className="relative h-32 overflow-hidden rounded-xl">
+                  <div className="relative h-48 overflow-hidden rounded-xl">
                     <Image
-                      src={p.featuredImage?.node?.sourceUrl || '/images/1436491865332-7a61a109cc05.jpg'}
+                      src={p.image}
                       alt={p.title}
                       fill
-                      unoptimized
                       sizes="33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
-                  <p className="mt-3 font-display text-sm font-bold leading-snug" dangerouslySetInnerHTML={{ __html: p.title }} />
+                  <p className="mt-3 font-display text-sm font-bold leading-snug">{p.title}</p>
                 </Link>
               ))}
             </div>

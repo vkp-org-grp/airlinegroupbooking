@@ -108,3 +108,22 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Blog article body */
+.blog-content { @apply text-[16px] leading-relaxed text-navy/75; }
+.blog-content h2 { @apply mt-10 mb-4 font-display text-2xl font-extrabold leading-snug text-navy; }
+.blog-content h3 { @apply mt-8 mb-3 font-display text-xl font-bold leading-snug text-navy; }
+.blog-content h4, .blog-content h6 { @apply mt-6 mb-2 font-display text-lg font-bold leading-snug text-navy; }
+.blog-content p { @apply my-4; }
+/* keep a sub-heading (e.g. an FAQ question) close to the text that answers it */
+.blog-content :is(h3, h4, h6):has(+ p) { @apply mb-1; }
+.blog-content :is(h3, h4, h6) + p { @apply mt-0; }
+.blog-content ul { @apply my-4 list-disc space-y-2 pl-6; }
+.blog-content ol { @apply my-4 list-decimal space-y-2 pl-6; }
+.blog-content a { @apply font-semibold text-sky underline; }
+.blog-content strong { @apply text-navy; }
+.blog-content img { @apply my-6 h-auto max-w-full rounded-xl; }
+.blog-content .table-wrap { @apply my-6 overflow-x-auto; }
+.blog-content table { @apply w-full border-collapse text-sm; }
+.blog-content th, .blog-content td { @apply border border-navy/15 p-3 text-left align-top; }
+.blog-content th { @apply bg-paper font-bold text-navy; }

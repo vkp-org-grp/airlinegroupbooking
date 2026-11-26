@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, Phone, Plus, PlaneLanding, PlaneTakeoff, Route, Send, X } from 'lucide-react';
@@ -340,9 +341,9 @@ export default function SearchWidget() {
         <p className="mt-3 text-[11px] leading-relaxed text-navy/40">
           By submitting, you consent to receive calls/texts about your group quote from {site.legalName}. Reply STOP
           to opt out. See our{' '}
-          <a href="/privacy-policy" className="underline">
+          <Link href="/privacy-policy" className="underline">
             privacy policy
-          </a>
+          </Link>
           .
         </p>
 

@@ -26,7 +26,7 @@ export default function Faq({ items, eyebrow = 'Questions', heading = 'Frequentl
                     type="button"
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-start justify-between gap-6 py-6 text-left"
+                    className={`flex w-full items-start justify-between gap-6 pt-6 text-left ${isOpen ? 'pb-2' : 'pb-6'}`}
                   >
                     <span className="font-display text-lg font-bold leading-snug">{f.q}</span>
                     <motion.span
