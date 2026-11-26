@@ -4,9 +4,10 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import { Reveal } from '@/components/Motion';
 import { destinations } from '@/data/destinations';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/destinations/' },
+  ...pageSeo('/destinations/'),
   title: 'Popular Group Travel Destinations',
   description: 'Group flight destinations — London, Paris, Dubai, Singapore, and more, priced for parties of 10 or more.',
 };

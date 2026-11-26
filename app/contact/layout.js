@@ -1,6 +1,8 @@
+import { pageSeo } from '@/lib/seo';
+
 export const metadata = {
   title: 'Contact Us',
-  alternates: { canonical: '/contact/' },
+  ...pageSeo('/contact/'),
 };
 
 export default function ContactLayout({ children }) {

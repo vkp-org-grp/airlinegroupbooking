@@ -5,6 +5,7 @@ import CTASection from '@/components/CTASection';
 import { Reveal } from '@/components/Motion';
 import { deals, getDeal } from '@/data/deals';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export function generateStaticParams() {
   return deals.map((d) => ({ slug: d.slug }));
@@ -14,7 +15,7 @@ export function generateMetadata({ params }) {
   const d = getDeal(params.slug);
   if (!d) return {};
   return {
-    alternates: { canonical: `/deals/${params.slug}/` },
+    ...pageSeo(`/deals/${params.slug}/`),
     title: `${d.name} — Group Fare Deals`,
     description: d.summary,
   };

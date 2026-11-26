@@ -5,9 +5,10 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import { Reveal } from '@/components/Motion';
 import { airlines } from '@/data/airlines';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/group-booking/' },
+  ...pageSeo('/group-booking/'),
   title: 'Group Flight Booking — All Airline Partners',
   description: 'Negotiated group airfare across 18 airline partners for parties of 10 or more passengers.',
 };

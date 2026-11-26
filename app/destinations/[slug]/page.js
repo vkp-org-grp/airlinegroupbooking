@@ -5,6 +5,7 @@ import CTASection from '@/components/CTASection';
 import { Reveal } from '@/components/Motion';
 import { destinations, getDestination } from '@/data/destinations';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
@@ -14,7 +15,7 @@ export function generateMetadata({ params }) {
   const d = getDestination(params.slug);
   if (!d) return {};
   return {
-    alternates: { canonical: `/destinations/${params.slug}/` },
+    ...pageSeo(`/destinations/${params.slug}/`, { image: d.img }),
     title: `${d.name} Group Flights — ${d.country}`,
     description: d.summary,
   };

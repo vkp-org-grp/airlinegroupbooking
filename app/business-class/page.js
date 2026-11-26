@@ -5,9 +5,10 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import { Reveal } from '@/components/Motion';
 import { businessClass } from '@/data/businessClass';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/business-class/' },
+  ...pageSeo('/business-class/'),
   title: 'Business Class Group Booking — Premium Airline Partners',
   description: 'Negotiated Business and Premium cabin group fares across 12 airline partners for parties of 10 or more.',
 };

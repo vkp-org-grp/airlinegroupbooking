@@ -1,7 +1,8 @@
 import LegalPage from '@/components/LegalPage';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
-export const metadata = { title: 'Refund Policy', alternates: { canonical: '/refund-policy/' } };
+export const metadata = { title: 'Refund Policy', ...pageSeo('/refund-policy/') };
 
 export default function Refund() {
   return (

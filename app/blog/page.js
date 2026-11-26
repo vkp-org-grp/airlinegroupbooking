@@ -3,9 +3,10 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import { Reveal } from '@/components/Motion';
 import { getAllPosts, formatDate } from '@/lib/blog';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/blog/' },
+  ...pageSeo('/blog/'),
   title: 'Blog — Group Travel Guides & Airline Tips',
   description: 'Guides on group flight booking, airline group perks, and seasonal fare timing.',
 };

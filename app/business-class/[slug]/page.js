@@ -8,6 +8,7 @@ import { Reveal } from '@/components/Motion';
 import { businessClass, getBusinessClass } from '@/data/businessClass';
 import { getAirline } from '@/data/airlines';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export function generateStaticParams() {
   return businessClass.map((b) => ({ slug: b.slug }));
@@ -17,7 +18,7 @@ export function generateMetadata({ params }) {
   const b = getBusinessClass(params.slug);
   if (!b) return {};
   return {
-    alternates: { canonical: `/business-class/${params.slug}/` },
+    ...pageSeo(`/business-class/${params.slug}/`, { image: b.img }),
     title: `${b.name} Business Class Group Booking | ${b.cabin}`,
     description: `Group rates on ${b.name} ${b.cabin}. ${b.highlight}. Get a free group quote by phone.`,
   };

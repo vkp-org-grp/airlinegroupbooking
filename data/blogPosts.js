@@ -755,7 +755,7 @@ export const blogPosts = [
     "excerpt": "Delta Group Booking: Unlock the Best Travel Discounts – Planning a trip for a big group is exciting – but it can also feel overwhelming. Coordinating flights, managing budgets, and keeping everyone happy is a lot to juggle. That’s where Delta group bookings and a trusted partner like Airlines Group Bookings come in. With the…",
     "date": "2025-11-12T14:03:17",
     "modified": "2026-01-16T11:50:25",
-    "image": "/images/blog/premium_photo-1682089305164-68a837b50e31.avif",
+    "image": "/images/blog/premium_photo-1682089305164-68a837b50e31.jpg",
     "imageAlt": "Delta Group Bookings: Unlock the Best Travel Discounts",
     "seoTitle": "Delta Group Booking & Discounts | Airlines Group Bookings",
     "seoDescription": "Save on Delta group booking with Airlines Group Bookings. Get special fares, flexible options, and easy support for your next trip."

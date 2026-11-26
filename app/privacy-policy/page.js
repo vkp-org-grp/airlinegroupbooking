@@ -1,7 +1,8 @@
 import LegalPage from '@/components/LegalPage';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
-export const metadata = { title: 'Privacy Policy', alternates: { canonical: '/privacy-policy/' } };
+export const metadata = { title: 'Privacy Policy', ...pageSeo('/privacy-policy/') };
 
 export default function Privacy() {
   return (

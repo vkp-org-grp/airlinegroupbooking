@@ -1,7 +1,8 @@
 import LegalPage from '@/components/LegalPage';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
-export const metadata = { title: 'Terms & Conditions', alternates: { canonical: '/terms-condition/' } };
+export const metadata = { title: 'Terms & Conditions', ...pageSeo('/terms-condition/') };
 
 export default function Terms() {
   return (

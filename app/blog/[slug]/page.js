@@ -6,6 +6,7 @@ import { Reveal } from '@/components/Motion';
 import { getAllPosts, getPostBySlug, formatDate } from '@/lib/blog';
 import { articles } from '@/components/blog/articles';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export const dynamicParams = false;
 
@@ -18,7 +19,12 @@ export function generateMetadata({ params }) {
   if (!post) return {};
   const title = post.seoTitle || post.title;
   return {
-    alternates: { canonical: `/blog/${params.slug}/` },
+    ...pageSeo(`/blog/${params.slug}/`, {
+      image: post.image,
+      type: 'article',
+      publishedTime: post.date,
+      modifiedTime: post.modified,
+    }),
     // skip the title template when the title already carries the brand name
     title: title.includes(site.name) ? { absolute: title } : title,
     description: post.seoDescription || post.excerpt,

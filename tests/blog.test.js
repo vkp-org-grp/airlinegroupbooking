@@ -49,6 +49,8 @@ describe('blog data', () => {
     expect(p.title).not.toMatch(/<[a-z]|&(amp|#\d+);/i);
     expect(Number.isNaN(Date.parse(p.modified))).toBe(false);
     expect(p.image).toMatch(/^\/images\//);
+    // the cover is also the og:image; social previews don't reliably support AVIF/SVG
+    expect(p.image).toMatch(/\.(jpe?g|png|webp)$/i);
     expect(exists(p.image), p.image).toBe(true);
   });
 

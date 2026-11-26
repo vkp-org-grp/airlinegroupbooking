@@ -45,14 +45,8 @@ export const metadata = {
     'corporate group travel',
     'school group flights',
   ],
-  openGraph: {
-    title: 'Bulk Air Ticket Booking | Airlines Group Travel Experts',
-    description:
-      'Negotiated group fares for 10+ passengers. Corporate teams, school tours, weddings, and sports crews.',
-    url: site.url,
-    siteName: site.name,
-    type: 'website',
-  },
+  // canonical and Open Graph are set per page with pageSeo() from lib/seo.js
+  openGraph: { siteName: site.name, type: 'website' },
   robots: { index: true, follow: true },
   verification: {
     google: '8qkMY136L68fFsYxENUziw27qeC4XCM6REL_WMZ_fk8',

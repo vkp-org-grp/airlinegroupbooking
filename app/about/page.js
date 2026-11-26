@@ -5,9 +5,10 @@ import Testimonials from '@/components/Testimonials';
 import { Reveal, CountUp } from '@/components/Motion';
 import { stats } from '@/data/content';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/about/' },
+  ...pageSeo('/about/'),
   title: 'About Us',
   description: `About ${site.name} — a dedicated group flight specialist for parties of ${site.minGroupSize} or more.`,
 };

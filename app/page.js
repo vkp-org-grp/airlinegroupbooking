@@ -8,9 +8,10 @@ import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 import { site } from '@/data/site';
 import { homeFaqs } from '@/data/content';
+import { pageSeo } from '@/lib/seo';
 
 export const metadata = {
-  alternates: { canonical: '/' },
+  ...pageSeo('/'),
 };
 
 const jsonLd = {

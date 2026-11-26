@@ -7,6 +7,7 @@ import GroupTravelGuide from '@/components/GroupTravelGuide';
 import { Reveal } from '@/components/Motion';
 import { airlines, getAirline } from '@/data/airlines';
 import { site } from '@/data/site';
+import { pageSeo } from '@/lib/seo';
 
 export function generateStaticParams() {
   return airlines.map((a) => ({ slug: a.slug }));
@@ -16,7 +17,7 @@ export function generateMetadata({ params }) {
   const a = getAirline(params.slug);
   if (!a) return {};
   return {
-    alternates: { canonical: `/group-booking/${params.slug}/` },
+    ...pageSeo(`/group-booking/${params.slug}/`, { image: a.img }),
     title: `${a.name} Group Booking — Fares for ${site.minGroupSize}+ Passengers`,
     description: `Book ${a.name} group tickets for ${site.minGroupSize} or more passengers. ${a.bestFor}. Get a free group quote by phone.`,
   };
