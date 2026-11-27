@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import { Reveal } from '@/components/Motion';
 import { deals } from '@/data/deals';
 import { pageSeo } from '@/lib/seo';
 
@@ -22,20 +21,18 @@ export default function DealsIndex() {
       />
       <section className="bg-paper py-20">
         <div className="wrap">
-          <Reveal>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {deals.map((d) => (
-                <Link key={d.slug} href={`/deals/${d.slug}`} className="group flex h-full flex-col rounded-2xl border border-navy/8 bg-white p-6 transition-colors hover:border-gold/40 hover:shadow-card">
-                  <span className="w-fit rounded-full bg-navy/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/50">{d.tag}</span>
-                  <h2 className="mt-4 font-display text-xl font-bold">{d.name}</h2>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/55">{d.summary}</p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-sky">
+                <Link key={d.slug} href={`/deals/${d.slug}`} className="group flex h-full flex-col rounded-2xl border border-ink/8 bg-white p-6 transition-colors hover:border-coral/40 hover:shadow-card">
+                  <span className="w-fit rounded-full bg-ink/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50">{d.tag}</span>
+                  <h2 className="mt-4 font-display text-xl font-medium">{d.name}</h2>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/55">{d.summary}</p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-teal">
                     Explore <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
               ))}
             </div>
-          </Reveal>
         </div>
       </section>
       {/* <CTASection /> */}

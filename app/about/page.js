@@ -24,18 +24,18 @@ export default function About() {
 
       <section className="bg-white py-20">
         <div className="wrap grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
+          <div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
               <Image
                 src="/images/1436491865332-7a61a109cc05.jpg"
                 alt="Aircraft above the clouds"
                 fill
-                unoptimized
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
-          </Reveal>
+          </div>
 
           <div>
             <Reveal>
@@ -43,7 +43,7 @@ export default function About() {
               <h2 className="h-display mt-4 text-[clamp(2rem,4.4vw,3rem)]">Built for groups, not individuals</h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mt-7 space-y-5 text-[16px] leading-relaxed text-navy/65">
+              <div className="mt-7 space-y-5 text-[16px] leading-relaxed text-ink/65">
                 <p>
                   {site.name} is a service of {site.legalName}. We specialize in one thing: negotiated group airfare
                   for parties of {site.minGroupSize} or more, across 18 airline partners.
@@ -61,14 +61,14 @@ export default function About() {
               </div>
             </Reveal>
             <Reveal delay={0.18}>
-              <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-navy/10 pt-10 sm:grid-cols-4">
+              <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-ink/10 pt-10 sm:grid-cols-4">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <dd>
-                      <span className="block font-display text-3xl font-extrabold tracking-tight">
+                      <span className="block font-display text-3xl font-medium tracking-tight">
                         {s.text ? s.text : <CountUp to={s.value} suffix={s.suffix} />}
                       </span>
-                      <span className="mt-2 block font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-navy/40">
+                      <span className="mt-2 block font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-ink/40">
                         {s.label}
                       </span>
                     </dd>

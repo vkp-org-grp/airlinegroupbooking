@@ -58,21 +58,21 @@ export default function AirlinePage({ params }) {
             <ul className="mt-8 space-y-4">
               {a.perks.map((p) => (
                 <li key={p} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-sky/10 text-sky">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal/10 text-teal">
                     <Check size={13} strokeWidth={3} />
                   </span>
-                  <span className="text-[15px] leading-relaxed text-navy/70">{p}</span>
+                  <span className="text-[15px] leading-relaxed text-ink/70">{p}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-10 rounded-2xl border border-navy/8 bg-paper p-6">
-              <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-navy/45">
+            <div className="mt-10 rounded-2xl border border-ink/8 bg-paper p-6">
+              <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/45">
                 <Users size={13} />
                 Minimum group size
               </p>
-              <p className="mt-2 font-display text-2xl font-extrabold">{site.minGroupSize}+ passengers</p>
-              <p className="mt-2 text-sm text-navy/55">
+              <p className="mt-2 font-display text-2xl font-medium">{site.minGroupSize}+ passengers</p>
+              <p className="mt-2 text-sm text-ink/55">
                 Below {site.minGroupSize} travelers, an individual fare on {a.short} is usually cheaper — the desk
                 will tell you honestly if that applies to your trip.
               </p>
@@ -82,16 +82,16 @@ export default function AirlinePage({ params }) {
           <Reveal delay={0.1}>
             <div className="card overflow-hidden">
               <div className="relative h-48">
-                <Image src={a.img} alt={a.name} fill unoptimized sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+                <Image src={a.img} alt={a.name} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
               </div>
               <div className="p-7">
-                <h3 className="font-display text-xl font-bold">Get a {a.short} group quote</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy/55">
+                <h3 className="font-display text-xl font-medium">Get a {a.short} group quote</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/55">
                   Call with your route, dates, and headcount — a specialist checks live {a.short} group availability
                   while you&apos;re on the line.
                 </p>
                 {/*
-                <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
+                <a href={site.phoneHref} className="btn-accent mt-6 w-full py-4 text-base">
                   <Phone size={17} strokeWidth={2.5} />
                   Call {site.phone}
                 </a>

@@ -61,7 +61,7 @@ export default function GroupTravelGuide({ airlineName }) {
           </Reveal>
 
           <Reveal delay={0.05}>
-            <div className="mt-8 space-y-10 text-[16px] leading-relaxed text-navy/70 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-extrabold [&_h3]:text-navy [&_h3]:mb-3 [&_li]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_p+p]:mt-4">
+            <div className="mt-8 space-y-10 text-[16px] leading-relaxed text-ink/70 [&_h3]:font-display [&_h3]:text-xl [&_h3]:font-medium [&_h3]:text-ink [&_h3]:mb-3 [&_li]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_p+p]:mt-4">
               <div>
                 <p>
                   Planning a trip with family, friends, colleagues, students, or a larger organization? Our{' '}
@@ -125,7 +125,7 @@ export default function GroupTravelGuide({ airlineName }) {
                 {/*
                 <p>
                   For immediate assistance, you may also call us at{' '}
-                  <a href={site.phoneHref} className="font-semibold text-navy underline">
+                  <a href={site.phoneHref} className="font-semibold text-ink underline">
                     {site.phone}
                   </a>
                   .
@@ -210,11 +210,11 @@ export default function GroupTravelGuide({ airlineName }) {
             {audiences.map(({ Icon, title, body }, i) => (
               <Reveal key={title} delay={(i % 3) * 0.06}>
                 <div className="card h-full p-6">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-sky/10 text-sky">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-teal/10 text-teal">
                     <Icon size={18} strokeWidth={2.2} />
                   </span>
-                  <h3 className="mt-4 font-display text-base font-bold">{title}</h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-navy/60">{body}</p>
+                  <h3 className="mt-4 font-display text-base font-medium">{title}</h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-ink/60">{body}</p>
                 </div>
               </Reveal>
             ))}
@@ -229,12 +229,12 @@ export default function GroupTravelGuide({ airlineName }) {
             <h2 className="h-display mt-4 text-[clamp(1.8rem,3.4vw,2.6rem)]">
               Planning travel for {site.minGroupSize} or more people?
             </h2>
-            <p className="mt-5 text-[16px] leading-relaxed text-navy/70">
+            <p className="mt-5 text-[16px] leading-relaxed text-ink/70">
               Whatever the purpose of your trip, our goal is to make group airfare easier to manage. Tell us your
               passenger count, travel dates, departure city, destination, and other requirements, and our group
               travel team will work with you to explore available options.
             </p>
-            <p className="mt-4 text-[16px] leading-relaxed text-navy/70">
+            <p className="mt-4 text-[16px] leading-relaxed text-ink/70">
               Submit your group travel request today and let our team help coordinate your group&apos;s journey from
               quote to departure.
             </p>

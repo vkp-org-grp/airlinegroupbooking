@@ -9,10 +9,10 @@ export default function Logo({ variant = 'dark' }) {
         <Image src={light ? '/logo-w.png' : '/logo.png'} alt="Airlines Group Bookings" fill sizes="40px" className="object-contain" />
       </span>
       <span className="leading-none">
-        <span className={`block font-display text-[17px] font-extrabold tracking-tight ${light ? 'text-white' : 'text-navy'}`}>
+        <span className={`block font-display text-[17px] font-semibold tracking-tight ${light ? 'text-white' : 'text-ink'}`}>
           Airlines Group Bookings
         </span>
-        <span className={`mt-1 block font-mono text-[9px] uppercase tracking-[0.24em] max-[452px]:hidden ${light ? 'text-white/50' : 'text-navy/45'}`}>
+        <span className={`mt-1 block font-mono text-[9px] uppercase tracking-[0.24em] max-[520px]:hidden xl:hidden min-[1400px]:block ${light ? 'text-white/50' : 'text-ink/45'}`}>
           Seamless Solutions for Group Travel
         </span>
       </span>

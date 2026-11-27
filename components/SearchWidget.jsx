@@ -118,8 +118,8 @@ export default function SearchWidget() {
   };
 
   return (
-    <div className="card p-5 sm:p-7">
-      <div role="tablist" aria-label="Trip type" className="mb-6 inline-flex flex-wrap gap-1 rounded-full bg-paper p-1">
+    <div className="rounded-[28px] bg-white p-5 text-ink shadow-float sm:p-8">
+      <div role="tablist" aria-label="Trip type" className="mb-6 inline-flex flex-wrap gap-1 rounded-3xl bg-paper p-1 sm:rounded-full">
         {TABS.map((t) => {
           const active = tab === t.id;
           return (
@@ -130,13 +130,13 @@ export default function SearchWidget() {
               aria-selected={active}
               onClick={() => setTab(t.id)}
               className={`relative flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                active ? 'text-navy' : 'text-navy/45 hover:text-navy/70'
+                active ? 'text-ink' : 'text-ink/45 hover:text-ink/70'
               }`}
             >
               {active && (
                 <motion.span
                   layoutId="tabPill"
-                  className="absolute inset-0 rounded-full bg-gold"
+                  className="absolute inset-0 rounded-full bg-sunset"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
@@ -152,7 +152,7 @@ export default function SearchWidget() {
           {tab === 'multi' ? (
             <motion.div key="multi-legs" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }} className="space-y-3">
               {legs.map((leg, idx) => (
-                <div key={idx} className="grid gap-3 rounded-xl border border-navy/10 bg-paper/60 p-3 sm:grid-cols-[1fr_1fr_1fr_auto]">
+                <div key={idx} className="grid gap-3 rounded-xl border border-ink/10 bg-paper/60 p-3 sm:grid-cols-[1fr_1fr_1fr_auto]">
                   <AirportField
                     id={`leg-from-${idx}`}
                     label={`Leg ${idx + 1} · From`}
@@ -189,7 +189,7 @@ export default function SearchWidget() {
                       type="button"
                       onClick={() => removeLeg(idx)}
                       aria-label={`Remove leg ${idx + 1}`}
-                      className="grid h-9 w-9 place-items-center self-end rounded-lg border border-navy/12 text-navy/50 transition-colors hover:border-navy hover:text-navy sm:self-center"
+                      className="grid h-9 w-9 place-items-center self-end rounded-lg border border-ink/12 text-ink/50 transition-colors hover:border-ink hover:text-ink sm:self-center"
                     >
                       <X size={15} />
                     </button>
@@ -201,7 +201,7 @@ export default function SearchWidget() {
                 <button
                   type="button"
                   onClick={addLeg}
-                  className="flex items-center gap-1.5 text-sm font-semibold text-navy/60 transition-colors hover:text-navy"
+                  className="flex items-center gap-1.5 text-sm font-semibold text-ink/60 transition-colors hover:text-ink"
                 >
                   <Plus size={15} strokeWidth={2.5} />
                   Add another leg
@@ -238,7 +238,7 @@ export default function SearchWidget() {
               </div>
             </motion.div>
           ) : (
-            <motion.div key="single-route" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }} className="grid gap-4 sm:grid-cols-2">
+            <motion.div key="single-route" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <AirportField
                 id="from"
                 label="Flying from"
@@ -317,7 +317,7 @@ export default function SearchWidget() {
           )}
         </AnimatePresence>
 
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <PhoneField id="phone" label="Phone" required value={form.phone} onChange={(val) => set('phone')({ target: { value: val } })} />
           <div>
             <label className="field-label" htmlFor="email">
@@ -336,9 +336,18 @@ export default function SearchWidget() {
               <p className="mt-1.5 text-xs text-red-600">Enter a valid email address.</p>
             )}
           </div>
+
+          <button
+            type="submit"
+            disabled={sending}
+            className="btn-accent h-12 self-start py-0 text-[15px] disabled:opacity-60 sm:col-span-2 lg:col-span-1 lg:mt-[21px]"
+          >
+            <Send size={17} strokeWidth={2.5} />
+            {sending ? 'Sending…' : 'Get a free group quote'}
+          </button>
         </div>
 
-        <p className="mt-3 text-[11px] leading-relaxed text-navy/40">
+        <p className="mt-4 text-center text-[11px] leading-relaxed text-ink/55">
           By submitting, you consent to receive calls/texts about your group quote from {site.legalName}. Reply STOP
           to opt out. See our{' '}
           <Link href="/privacy-policy" className="underline">
@@ -347,36 +356,31 @@ export default function SearchWidget() {
           .
         </p>
 
-        {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
-
-        <button type="submit" disabled={sending} className="btn-navy mt-5 w-full py-4 text-base disabled:opacity-60">
-          <Send size={17} strokeWidth={2.5} />
-          {sending ? 'Sending…' : 'Get a free group quote'}
-        </button>
+        {error && <p className="mt-3 text-center text-sm text-red-600">{error}</p>}
       </form>
 
       <ThankYouModal open={sent} onClose={closeModal}>
         <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-success text-white">
           <Check size={24} strokeWidth={3} />
         </span>
-        <h3 className="mt-5 font-display text-xl font-extrabold">Message received</h3>
+        <h3 className="mt-5 font-display text-xl font-medium">Message received</h3>
         {refNo && (
-          <p className="mt-2 inline-block rounded-full bg-paper px-3 py-1 font-mono text-xs font-bold tracking-wide text-navy/70">
+          <p className="mt-2 inline-block rounded-full bg-paper px-3 py-1 font-mono text-xs font-bold tracking-wide text-ink/70">
             Ref. No: {refNo}
           </p>
         )}
-        <p className="mt-3 text-sm font-semibold leading-relaxed text-navy/85">Thank you for your enquiry.</p>
-        <p className="mt-2 text-sm leading-relaxed text-navy/60">
+        <p className="mt-3 text-sm font-semibold leading-relaxed text-ink/85">Thank you for your enquiry.</p>
+        <p className="mt-2 text-sm leading-relaxed text-ink/60">
           We&apos;ve received your request for a group booking. One of our specialised travel consultants will
           contact you within 24 business hours.
         </p>
         {/*
-        <a href={site.phoneHref} className="btn-gold mt-5 w-full">
+        <a href={site.phoneHref} className="btn-accent mt-5 w-full">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>
         */}
-        <button type="button" onClick={closeModal} className="btn-navy mt-5 w-full py-3 text-sm">
+        <button type="button" onClick={closeModal} className="btn-ink mt-5 w-full py-3 text-sm">
           OK
         </button>
       </ThankYouModal>

@@ -54,7 +54,7 @@ export default function BlogPost({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <article className="bg-navy pb-16 pt-[132px] text-white">
+      <article className="night-sky pb-16 pt-[150px] text-white">
         <div className="wrap">
           <Link href="/blog" className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/50 hover:text-white">
             <ArrowLeft size={13} />
@@ -67,26 +67,26 @@ export default function BlogPost({ params }) {
 
       <div className="wrap -mt-10 mb-10">
         <div className="relative h-[280px] overflow-hidden rounded-2xl shadow-card sm:h-[420px]">
-          <Image src={post.image} alt={post.imageAlt} fill priority sizes="100vw" className="object-cover" />
+          <Image src={post.image} alt={post.imageAlt} fill priority quality={65} sizes="(max-width: 1280px) 100vw, 1216px" className="object-cover" />
         </div>
       </div>
 
       <section className="bg-white py-20">
         <div className="wrap grid gap-14 lg:grid-cols-[1.265fr_0.765fr] lg:gap-20">
-          <Reveal>
+          <div>
             <div className="blog-content">
               <Article />
             </div>
-          </Reveal>
+          </div>
 
           <Reveal delay={0.1}>
             <div className="card sticky top-28 p-7">
-              <h3 className="font-display text-xl font-bold">Ready to book a group?</h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy/55">
+              <h3 className="font-display text-xl font-medium">Ready to book a group?</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink/55">
                 Call with your route, dates, and headcount for a live group fare.
               </p>
               {/*
-              <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
+              <a href={site.phoneHref} className="btn-accent mt-6 w-full py-4 text-base">
                 <Phone size={17} strokeWidth={2.5} />
                 Call {site.phone}
               </a>
@@ -96,8 +96,8 @@ export default function BlogPost({ params }) {
         </div>
 
         {related.length > 0 && (
-          <div className="wrap mt-16 border-t border-navy/10 pt-14">
-            <h2 className="font-display text-2xl font-extrabold">More from the blog</h2>
+          <div className="wrap mt-16 border-t border-ink/10 pt-14">
+            <h2 className="font-display text-2xl font-medium">More from the blog</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               {related.map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`} className="group">
@@ -110,7 +110,7 @@ export default function BlogPost({ params }) {
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
-                  <p className="mt-3 font-display text-sm font-bold leading-snug">{p.title}</p>
+                  <p className="mt-3 font-display text-sm font-medium leading-snug">{p.title}</p>
                 </Link>
               ))}
             </div>

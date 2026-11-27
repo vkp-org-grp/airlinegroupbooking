@@ -74,34 +74,34 @@ export default function Contact() {
             <div className="space-y-5">
               {/*
               <a href={site.phoneHref} className="group flex items-start gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold text-navy">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-coral text-ink">
                   <Phone size={17} strokeWidth={2.5} />
                 </span>
                 <span>
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Group fare desk</span>
-                  <span className="mt-1 block font-display text-lg font-bold group-hover:underline">{site.phone}</span>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink/40">Group fare desk</span>
+                  <span className="mt-1 block font-display text-lg font-medium group-hover:underline">{site.phone}</span>
                 </span>
               </a>
               */}
 
               <a href={`mailto:${site.email}`} className="group flex items-start gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy/5 text-navy">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink/5 text-ink">
                   <Mail size={17} strokeWidth={2.2} />
                 </span>
                 <span>
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Email</span>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink/40">Email</span>
                   <span className="mt-1 block text-[15px] font-semibold group-hover:underline">{site.email}</span>
                 </span>
               </a>
 
               {/*
               <div className="flex items-start gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy/5 text-navy">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink/5 text-ink">
                   <MapPin size={17} strokeWidth={2.2} />
                 </span>
                 <span>
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Office</span>
-                  <span className="mt-1 block text-[15px] leading-relaxed text-navy/70">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-ink/40">Office</span>
+                  <span className="mt-1 block text-[15px] leading-relaxed text-ink/70">
                     {site.address.map((l) => (
                       <span key={l} className="block">{l}</span>
                     ))}
@@ -150,10 +150,10 @@ export default function Contact() {
                   </div>
                 </div>
                 {error && <p className="mt-4 text-center text-sm text-red-600">{error}</p>}
-                <button type="submit" disabled={sending} className="btn-navy mt-6 w-full py-4 text-base disabled:opacity-60">
+                <button type="submit" disabled={sending} className="btn-ink mt-6 w-full py-4 text-base disabled:opacity-60">
                   {sending ? 'Sending…' : 'Send message'}
                 </button>
-                <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-navy/35">
+                <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-ink/35">
                   We only use these details to answer your enquiry.
                 </p>
               </form>
@@ -166,24 +166,24 @@ export default function Contact() {
         <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-success text-white">
           <Check size={24} strokeWidth={3} />
         </span>
-        <h3 className="mt-5 font-display text-xl font-extrabold">Message received</h3>
+        <h3 className="mt-5 font-display text-xl font-medium">Message received</h3>
         {refNo && (
-          <p className="mt-2 inline-block rounded-full bg-paper px-3 py-1 font-mono text-xs font-bold tracking-wide text-navy/70">
+          <p className="mt-2 inline-block rounded-full bg-paper px-3 py-1 font-mono text-xs font-bold tracking-wide text-ink/70">
             Ref. No: {refNo}
           </p>
         )}
-        <p className="mt-3 text-sm font-semibold leading-relaxed text-navy/85">Thank you for your enquiry.</p>
-        <p className="mt-2 text-sm leading-relaxed text-navy/60">
+        <p className="mt-3 text-sm font-semibold leading-relaxed text-ink/85">Thank you for your enquiry.</p>
+        <p className="mt-2 text-sm leading-relaxed text-ink/60">
           We&apos;ve received your request for a group booking. One of our specialised travel consultants will
           contact you within 24 business hours.
         </p>
         {/*
-        <a href={site.phoneHref} className="btn-gold mt-5 w-full">
+        <a href={site.phoneHref} className="btn-accent mt-5 w-full">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>
         */}
-        <button type="button" onClick={closeModal} className="btn-navy mt-5 w-full py-3 text-sm">
+        <button type="button" onClick={closeModal} className="btn-ink mt-5 w-full py-3 text-sm">
           OK
         </button>
       </ThankYouModal>

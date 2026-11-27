@@ -12,7 +12,7 @@ export default function ThankYouModal({ open, onClose, children }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/60 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-4"
           onClick={onClose}
         >
           <motion.div
@@ -29,7 +29,7 @@ export default function ThankYouModal({ open, onClose, children }) {
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full text-navy/40 transition-colors hover:bg-paper hover:text-navy"
+              className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full text-ink/40 transition-colors hover:bg-paper hover:text-ink"
             >
               <X size={18} />
             </button>

@@ -10,9 +10,9 @@ export default function AirportField({ id, label, placeholder, value, onChange, 
   const [activeIndex, setActiveIndex] = useState(-1);
   const wrapRef = useRef(null);
 
-  useEffect(() => {
-    loadAirports().then(setAirports);
-  }, []);
+  // The airport list is large, so fetch it only when someone starts using a field
+  // (loadAirports caches it for all fields). This keeps it out of the initial page load.
+  const ensureAirports = () => loadAirports().then(setAirports);
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -63,12 +63,15 @@ export default function AirportField({ id, label, placeholder, value, onChange, 
           setOpen(true);
           setActiveIndex(-1);
         }}
-        onFocus={() => setOpen(true)}
+        onFocus={() => {
+          ensureAirports();
+          setOpen(true);
+        }}
         onKeyDown={handleKeyDown}
       />
 
       {open && suggestions.length > 0 && (
-        <ul className="absolute z-20 mt-1 w-full max-h-64 overflow-auto rounded-xl border border-navy/10 bg-white py-1.5 shadow-lg">
+        <ul className="absolute z-20 mt-1 w-full max-h-64 overflow-auto rounded-xl border border-ink/10 bg-white py-1.5 shadow-lg">
           {suggestions.map((a, i) => (
             <li key={a.code}>
               <button
@@ -80,10 +83,10 @@ export default function AirportField({ id, label, placeholder, value, onChange, 
                 }`}
               >
                 <span className="truncate">
-                  <span className="font-semibold text-navy">{a.city || a.name}</span>
-                  <span className="text-navy/50">, {a.country}</span>
+                  <span className="font-semibold text-ink">{a.city || a.name}</span>
+                  <span className="text-ink/50">, {a.country}</span>
                 </span>
-                <span className="shrink-0 font-mono text-[11px] font-bold text-gold">{a.code}</span>
+                <span className="shrink-0 font-mono text-[11px] font-bold text-coral">{a.code}</span>
               </button>
             </li>
           ))}

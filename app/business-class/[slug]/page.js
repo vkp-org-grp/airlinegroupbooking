@@ -47,17 +47,17 @@ export default function BusinessClassPage({ params }) {
             <ul className="mt-8 space-y-4">
               {b.features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-coral/15 text-coral">
                     <Check size={13} strokeWidth={3} />
                   </span>
-                  <span className="text-[15px] leading-relaxed text-navy/70">{f}</span>
+                  <span className="text-[15px] leading-relaxed text-ink/70">{f}</span>
                 </li>
               ))}
             </ul>
             {airline && (
-              <p className="mt-8 text-sm text-navy/55">
+              <p className="mt-8 text-sm text-ink/55">
                 Looking for standard group Economy on {b.name} instead?{' '}
-                <Link href={`/group-booking/${airline.slug}`} className="font-semibold text-sky underline">
+                <Link href={`/group-booking/${airline.slug}`} className="font-semibold text-teal underline">
                   See {b.name} group booking
                 </Link>
                 .
@@ -68,15 +68,15 @@ export default function BusinessClassPage({ params }) {
           <Reveal delay={0.1}>
             <div className="card overflow-hidden">
               <div className="relative h-48">
-                <Image src={b.img} alt={b.name} fill unoptimized sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+                <Image src={b.img} alt={b.name} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
               </div>
               <div className="p-7">
-                <h3 className="font-display text-xl font-bold">Get a {b.cabin} group quote</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy/55">
+                <h3 className="font-display text-xl font-medium">Get a {b.cabin} group quote</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/55">
                   Premium cabin group seats are limited in number — call ahead for the most route flexibility.
                 </p>
                 {/*
-                <a href={site.phoneHref} className="btn-gold mt-6 w-full py-4 text-base">
+                <a href={site.phoneHref} className="btn-accent mt-6 w-full py-4 text-base">
                   <Phone size={17} strokeWidth={2.5} />
                   Call {site.phone}
                 </a>

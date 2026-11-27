@@ -26,21 +26,19 @@ export default function Testimonials() {
   }, [reduce, paused, i]);
 
   return (
-    <section className="bg-white py-24 sm:py-28">
-      <div className="wrap grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-        <Reveal>
-          <p className="eyebrow">Customer reviews</p>
-          <h2 className="h-display mt-4 text-[clamp(2rem,4.4vw,3rem)]">
-            What our travelers
-            <br />
-            say about us
+    <section className="night-sky py-24 text-white sm:py-32">
+      <div className="wrap flex max-w-[900px] flex-col items-center text-center">
+        <Reveal className="flex flex-col items-center">
+          <p className="eyebrow-dark">Customer reviews</p>
+          <h2 className="h-display mt-4 text-[clamp(2.2rem,5vw,3.8rem)]">
+            What our travelers <span className="text-sunset">say about us</span>
           </h2>
-          <div className="mt-8 flex gap-2">
+          <div className="mt-8 flex justify-center gap-2">
             <button
               type="button"
               onClick={prev}
               aria-label="Previous review"
-              className="grid h-11 w-11 place-items-center rounded-full border border-navy/12 text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-white hover:bg-white hover:text-ink"
             >
               <ChevronLeft size={18} />
             </button>
@@ -48,20 +46,20 @@ export default function Testimonials() {
               type="button"
               onClick={next}
               aria-label="Next review"
-              className="grid h-11 w-11 place-items-center rounded-full border border-navy/12 text-navy transition-colors hover:border-navy hover:bg-navy hover:text-white"
+              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-white hover:bg-white hover:text-ink"
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="mt-10 w-full">
           <div
-            className="relative min-h-[220px] rounded-2xl bg-paper p-8 sm:p-10"
+            className="relative min-h-[300px] rounded-[32px] border border-white/10 bg-white/[0.05] p-8 backdrop-blur-sm sm:p-12"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <Quote className="text-gold/50" size={36} />
+            <Quote className="mx-auto text-coral" size={36} />
             <AnimatePresence mode="wait">
               <motion.div
                 key={i}
@@ -70,27 +68,27 @@ export default function Testimonials() {
                 exit={{ opacity: 0, x: -24 * dir }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="mt-4 text-lg leading-relaxed text-navy/80">&ldquo;{t.quote}&rdquo;</p>
-                <div className="mt-6 flex items-center gap-3">
+                <p className="mt-6 font-display text-[clamp(1.3rem,2.6vw,1.9rem)] font-light leading-relaxed text-white">&ldquo;{t.quote}&rdquo;</p>
+                <div className="mt-7 flex items-center justify-center gap-3">
                   {/* <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-sm">
                     <Image src={t.avatar} alt={t.name} fill sizes="44px" className="object-cover" />
                   </span> */}
                   <span>
-                    <p className="font-display text-base font-bold">{t.name}</p>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-navy/40">{t.role}</p>
+                    <p className="font-display text-lg font-medium">{t.name}</p>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/55">{t.role}</p>
                   </span>
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-8 flex gap-1.5">
+            <div className="mt-8 flex justify-center gap-1.5">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setI(idx)}
                   aria-label={`Go to review ${idx + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${idx === i ? 'w-7 bg-gold' : 'w-1.5 bg-navy/15'}`}
+                  className={`h-1.5 rounded-full transition-all ${idx === i ? 'w-7 bg-sunset' : 'w-1.5 bg-white/25'}`}
                 />
               ))}
             </div>

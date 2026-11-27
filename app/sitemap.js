@@ -6,7 +6,10 @@ import { destinations } from '@/data/destinations';
 import { getAllPosts } from '@/lib/blog';
 
 export default async function sitemap() {
-  const now = new Date();
+  // lastModified is set only where a real edit date exists (the blog). Using the
+  // build time would tell search engines every page changed on every deploy.
+  const posts = getAllPosts();
+  const latestPost = new Date(Math.max(...posts.map((p) => new Date(p.modified))));
 
   const staticRoutes = [
     { url: '/', priority: 1 },
@@ -22,35 +25,31 @@ export default async function sitemap() {
     { url: '/terms-condition/', priority: 0.3 },
   ].map((r) => ({
     url: `${site.url}${r.url}`,
-    lastModified: now,
+    ...(r.url === '/blog/' && { lastModified: latestPost }),
     priority: r.priority,
   }));
 
   const airlineRoutes = airlines.map((a) => ({
     url: `${site.url}/group-booking/${a.slug}/`,
-    lastModified: now,
     priority: 0.8,
   }));
 
   const businessRoutes = businessClass.map((b) => ({
     url: `${site.url}/business-class/${b.slug}/`,
-    lastModified: now,
     priority: 0.7,
   }));
 
   const dealRoutes = deals.map((d) => ({
     url: `${site.url}/deals/${d.slug}/`,
-    lastModified: now,
     priority: 0.6,
   }));
 
   const destinationRoutes = destinations.map((d) => ({
     url: `${site.url}/destinations/${d.slug}/`,
-    lastModified: now,
     priority: 0.6,
   }));
 
-  const blogRoutes = getAllPosts().map((p) => ({
+  const blogRoutes = posts.map((p) => ({
     url: `${site.url}/blog/${p.slug}/`,
     lastModified: new Date(p.modified),
     priority: 0.6,

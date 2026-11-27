@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
-import { Reveal } from '@/components/Motion';
 import { airlines } from '@/data/airlines';
 import { pageSeo } from '@/lib/seo';
 
@@ -23,31 +22,29 @@ export default function GroupBookingIndex() {
       />
       <section className="bg-paper py-20">
         <div className="wrap">
-          <Reveal>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {airlines.map((a) => (
+              {airlines.map((a, i) => (
                 <Link
                   key={a.slug}
                   href={`/group-booking/${a.slug}`}
                   className="group card flex flex-col"
                 >
                   <div className="relative h-36 overflow-hidden">
-                    <Image src={a.img} alt={a.name} fill unoptimized sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent" />
+                    <Image priority={i === 0} src={a.img} alt={a.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col justify-between p-5">
                     <div>
-                      <h2 className="font-display text-lg font-bold">{a.name}</h2>
-                      <p className="mt-2 text-[13px] leading-relaxed text-navy/55">{a.bestFor}</p>
+                      <h2 className="font-display text-lg font-medium">{a.name}</h2>
+                      <p className="mt-2 text-[13px] leading-relaxed text-ink/55">{a.bestFor}</p>
                     </div>
-                    <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-sky">
+                    <span className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-teal">
                       Get quote <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
               ))}
             </div>
-          </Reveal>
         </div>
       </section>
       {/* <CTASection /> */}

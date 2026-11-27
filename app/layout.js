@@ -7,26 +7,16 @@ import Footer from '@/components/Footer';
 import CallBar from '@/components/CallBar';
 
 const display = localFont({
-  src: './fonts/BricolageGrotesque.woff2',
-  weight: '600 800',
+  src: './fonts/Outfit.woff2',
+  weight: '200 700',
   variable: '--font-display',
   display: 'swap',
 });
 
 const body = localFont({
-  src: './fonts/InstrumentSans.woff2',
+  src: './fonts/PlusJakartaSans.woff2',
   weight: '400 700',
   variable: '--font-body',
-  display: 'swap',
-});
-
-const mono = localFont({
-  src: [
-    { path: './fonts/IBMPlexMono-400.woff2', weight: '400', style: 'normal' },
-    { path: './fonts/IBMPlexMono-500.woff2', weight: '500', style: 'normal' },
-    { path: './fonts/IBMPlexMono-600.woff2', weight: '600', style: 'normal' },
-  ],
-  variable: '--font-mono',
   display: 'swap',
 });
 
@@ -55,11 +45,11 @@ export const metadata = {
 
 const GTM_ID = 'GTM-T8BR6W2Q';
 
-export const viewport = { themeColor: '#0B1E3A' };
+export const viewport = { themeColor: '#0C0B1D' };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}

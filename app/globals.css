@@ -6,94 +6,135 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 108px;
 }
 
 body {
-  @apply bg-paper text-navy font-body antialiased;
+  @apply bg-paper text-ink font-body antialiased;
 }
 
 ::selection {
-  background: #d9a441;
-  color: #0b1e3a;
+  background: #ff6b4a;
+  color: #0c0b1d;
 }
 
 :focus-visible {
-  outline: 2px solid #d9a441;
+  outline: 2px solid #ff6b4a;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 @layer components {
   .wrap {
-    @apply mx-auto w-full max-w-[1340px] px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8;
+  }
+
+  .eyebrow,
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.24em];
+  }
+
+  .eyebrow::before,
+  .eyebrow-dark::before {
+    content: '';
+    @apply h-[2px] w-7 rounded-full bg-sunset;
   }
 
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-sky;
+    @apply text-ember;
   }
 
   .eyebrow-dark {
-    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-gold;
+    @apply text-amber;
   }
 
   .h-display {
-    @apply font-display font-extrabold leading-[0.98] tracking-[-0.02em];
+    @apply font-display font-light leading-[1.04] tracking-[-0.03em];
+  }
+
+  /* gradient accent words in headlines */
+  .text-sunset {
+    @apply animate-shimmer bg-clip-text font-medium text-transparent;
+    background-image: linear-gradient(100deg, #ff6b4a, #ffb547, #ffd9a0, #ffb547, #ff6b4a);
+    background-size: 220% 100%;
+  }
+
+  .nav-link {
+    @apply relative flex items-center gap-1 whitespace-nowrap px-3 py-2 text-[13.5px] font-semibold text-white/75 transition-colors hover:text-white;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute inset-x-3 bottom-0 h-[2px] origin-left scale-x-0 rounded-full bg-sunset transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-body text-sm font-semibold transition-all duration-200 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-body text-sm font-bold transition-all duration-300 active:scale-[0.98];
   }
 
-  .btn-gold {
-    @apply btn bg-gold text-navy hover:shadow-glow hover:-translate-y-0.5;
+  .btn-accent {
+    @apply btn bg-sunset text-ink hover:-translate-y-0.5 hover:shadow-glow;
   }
 
-  .btn-navy {
-    @apply btn bg-navy text-white hover:bg-navy2 hover:-translate-y-0.5;
+  .btn-ink {
+    @apply btn bg-ink text-white hover:-translate-y-0.5 hover:bg-ink2;
   }
 
   .btn-ghost {
-    @apply btn border border-line/50 bg-transparent text-navy hover:border-navy hover:bg-navy hover:text-white;
+    @apply btn border border-ink/20 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/30 text-white backdrop-blur-sm hover:border-white hover:bg-white hover:text-ink;
   }
 
   .field {
-    @apply w-full rounded-xl border border-black/10 bg-white px-4 py-3 font-body text-sm text-navy outline-none transition-colors placeholder:text-navy/35 focus:border-sky;
+    @apply h-12 w-full rounded-2xl border border-transparent bg-paper px-4 font-body text-sm text-ink outline-none transition-colors placeholder:text-ink/40 focus:border-coral focus:bg-white;
   }
 
-  .PhoneInput {
-    @apply w-full items-center gap-2 rounded-xl border border-black/10 bg-white px-4 py-3 font-body text-sm text-navy transition-colors;
-  }
-
-  .PhoneInput:focus-within {
-    @apply border-sky;
-  }
-
-  .PhoneInputInput {
-    @apply flex-1 border-0 bg-transparent p-0 font-body text-sm text-navy outline-none placeholder:text-navy/35;
-  }
-
-  .PhoneInputCountry {
-    @apply mr-1;
-  }
-
-  .PhoneInputCountrySelectArrow {
-    @apply opacity-40;
+  textarea.field {
+    @apply h-auto py-3;
   }
 
   .field-label {
-    @apply mb-1.5 block font-mono text-[10px] uppercase tracking-[0.18em] text-navy/45;
+    @apply mb-1.5 block text-[10px] font-bold uppercase tracking-[0.16em] text-ink/55;
   }
 
   .card {
-    @apply relative overflow-hidden rounded-2xl bg-white shadow-card;
+    @apply relative overflow-hidden rounded-3xl bg-white shadow-card;
   }
 
-  .grid-lines {
-    background-image: linear-gradient(rgba(34, 52, 90, 0.35) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34, 52, 90, 0.35) 1px, transparent 1px);
-    background-size: 64px 64px;
+  /* dark hero backdrop used by inner pages */
+  .night-sky {
+    background: radial-gradient(900px 420px at 85% -10%, rgba(255, 107, 74, 0.28), transparent 65%),
+      radial-gradient(700px 420px at 0% 110%, rgba(94, 224, 200, 0.16), transparent 65%), #0c0b1d;
   }
+}
+
+/* Phone field. These class names come from react-phone-number-input, so the rules
+   stay outside @layer; inside it Tailwind purges the ones it can't find in our files. */
+.PhoneInput {
+  @apply h-12 w-full items-center gap-2 rounded-2xl border border-transparent bg-paper px-4 font-body text-sm text-ink transition-colors;
+}
+
+.PhoneInput:focus-within {
+  @apply border-coral bg-white;
+}
+
+.PhoneInputInput {
+  @apply w-0 flex-1 border-0 bg-transparent p-0 font-body text-sm text-ink outline-none placeholder:text-ink/40;
+}
+
+.PhoneInputCountry {
+  @apply mr-1;
+}
+
+.PhoneInputCountrySelectArrow {
+  @apply opacity-40;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -110,20 +151,20 @@ body {
 }
 
 /* Blog article body */
-.blog-content { @apply text-[16px] leading-relaxed text-navy/75; }
-.blog-content h2 { @apply mt-10 mb-4 font-display text-2xl font-extrabold leading-snug text-navy; }
-.blog-content h3 { @apply mt-8 mb-3 font-display text-xl font-bold leading-snug text-navy; }
-.blog-content h4, .blog-content h6 { @apply mt-6 mb-2 font-display text-lg font-bold leading-snug text-navy; }
+.blog-content { @apply text-[16px] leading-relaxed text-ink/75; }
+.blog-content h2 { @apply mt-10 mb-4 font-display text-2xl font-semibold leading-snug text-ink; }
+.blog-content h3 { @apply mt-8 mb-3 font-display text-xl font-bold leading-snug text-ink; }
+.blog-content h4, .blog-content h6 { @apply mt-6 mb-2 font-display text-lg font-bold leading-snug text-ink; }
 .blog-content p { @apply my-4; }
 /* keep a sub-heading (e.g. an FAQ question) close to the text that answers it */
 .blog-content :is(h3, h4, h6):has(+ p) { @apply mb-1; }
 .blog-content :is(h3, h4, h6) + p { @apply mt-0; }
 .blog-content ul { @apply my-4 list-disc space-y-2 pl-6; }
 .blog-content ol { @apply my-4 list-decimal space-y-2 pl-6; }
-.blog-content a { @apply font-semibold text-sky underline; }
-.blog-content strong { @apply text-navy; }
+.blog-content a { @apply font-semibold text-ember underline decoration-coral/40 underline-offset-2 hover:decoration-coral; }
+.blog-content strong { @apply text-ink; }
 .blog-content img { @apply my-6 h-auto max-w-full rounded-xl; }
 .blog-content .table-wrap { @apply my-6 overflow-x-auto; }
 .blog-content table { @apply w-full border-collapse text-sm; }
-.blog-content th, .blog-content td { @apply border border-navy/15 p-3 text-left align-top; }
-.blog-content th { @apply bg-paper font-bold text-navy; }
+.blog-content th, .blog-content td { @apply border border-ink/15 p-3 text-left align-top; }
+.blog-content th { @apply bg-paper font-bold text-ink; }

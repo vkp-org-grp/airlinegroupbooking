@@ -4,14 +4,14 @@ import { site } from '@/data/site';
 
 export default function PageHero({ eyebrow, title, body, img, meta }) {
   return (
-    <section className="relative overflow-hidden bg-navy pb-16 pt-[132px] text-white">
+    <section className="night-sky relative overflow-hidden pb-20 pt-[150px] text-white">
       {img && (
         <div className="absolute inset-0" aria-hidden>
-          <Image src={img} alt="" fill unoptimized sizes="100vw" className="object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/70" />
+          <Image src={img} alt="" fill priority quality={60} sizes="100vw" className="object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" aria-hidden />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-coral/70 to-transparent" aria-hidden />
 
       <div className="wrap relative">
         {eyebrow && <p className="eyebrow-dark">{eyebrow}</p>}
@@ -28,7 +28,7 @@ export default function PageHero({ eyebrow, title, body, img, meta }) {
           </dl>
         )}
         {/*
-        <a href={site.phoneHref} className="btn-gold mt-8">
+        <a href={site.phoneHref} className="btn-accent mt-8">
           <Phone size={16} strokeWidth={2.5} />
           Call {site.phone}
         </a>

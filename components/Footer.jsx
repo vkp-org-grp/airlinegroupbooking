@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, Plane } from 'lucide-react';
 import { footerLinks, site } from '@/data/site';
 import Logo from '@/components/Logo';
 import { airlines } from '@/data/airlines';
@@ -25,12 +25,27 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy pb-12 pt-20 text-white">
+    <footer className="border-t border-white/10 bg-ink pb-12 pt-16 text-white">
+      <div className="wrap mb-16">
+        <div className="relative flex flex-col items-start justify-between gap-6 overflow-hidden rounded-[32px] bg-sunset p-8 text-ink sm:p-12 lg:flex-row lg:items-center">
+          <Plane size={220} strokeWidth={0.8} className="pointer-events-none absolute -right-8 -top-10 rotate-12 text-ink/10" aria-hidden />
+          <div className="relative">
+            <p className="font-display text-[clamp(1.8rem,4vw,3rem)] font-light leading-tight">Planning a trip for your group?</p>
+            <p className="mt-2 max-w-[52ch] text-[15px] font-semibold text-ink/75">
+              Send your route, dates, and headcount — the group desk replies within 24 business hours.
+            </p>
+          </div>
+          <Link href="/contact" className="btn-ink relative shrink-0 px-8 py-4">
+            Request a group quote
+          </Link>
+        </div>
+      </div>
+
       <div className="mb-16 overflow-hidden border-y border-white/[0.07] py-4">
         <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
           {[...airlines, ...airlines].map((a, i) => (
             <span key={i} className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/25">
-              {a.short} <span className="text-gold/60">·</span>
+              {a.short} <span className="text-coral/60">·</span>
             </span>
           ))}
         </div>
@@ -51,7 +66,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/12 text-white/60 transition-colors hover:border-gold hover:bg-gold hover:text-navy"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/12 text-white/60 transition-colors hover:-translate-y-1 hover:border-coral hover:bg-coral hover:text-ink"
               >
                 <Icon size={15} />
               </a>
@@ -60,7 +75,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">Explore</h4>
+          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-coral">Explore</h4>
           <ul className="mt-5 space-y-3">
             {footerLinks.company.map((l) => (
               <li key={l.label}>
@@ -83,7 +98,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">Legal</h4>
+          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-coral">Legal</h4>
           <ul className="mt-5 space-y-3">
             {footerLinks.legal.map((l) => (
               <li key={l.label}>
@@ -96,7 +111,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">Contact</h4>
+          <h4 className="font-mono text-[10px] uppercase tracking-[0.24em] text-coral">Contact</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/55">
             {/* {site.address.map((l) => (
               <li key={l}>{l}</li>
@@ -119,7 +134,7 @@ export default function Footer() {
 
       <div className="wrap mt-16">
         {/*
-        <p className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/35">
+        <p className="rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/45">
           California Seller of Travel <strong className="font-bold text-white/60">Reg. No. 2173867-50</strong>.
           Registration as a seller of travel does not constitute approval by the State of California. Participant in
           the Travel Consumer Restitution Corporation (<strong className="font-bold text-white/60">TCRC-710561</strong>).
@@ -127,7 +142,7 @@ export default function Footer() {
         */}
 
         {/*
-        <p className="mt-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/35">
+        <p className="mt-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 text-[12px] leading-relaxed text-white/45">
           {site.name} is a service of {site.legalName}, an independent travel agency. We are not an airline and are
           not affiliated with, endorsed by, or acting on behalf of any airline named on this site. Airline names and
           logos are the property of their respective owners and are used only to describe the group fares we can
@@ -150,7 +165,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.07] pt-8 text-[12px] text-white/35 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.07] pt-8 text-[12px] text-white/45 sm:flex-row">
           <p>© {new Date().getFullYear()}{/* {site.legalName}. */} All rights reserved.</p>
           <p className="font-mono uppercase tracking-[0.16em]">{site.domain}</p>
         </div>

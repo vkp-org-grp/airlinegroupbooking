@@ -95,7 +95,7 @@ export default function Privacy() {
           Other than as set out above, you will have an opportunity to choose not to have us share such information.
           You may ask for a copy of your data, ask us to correct it, or ask us to delete it where no legal obligation
           requires us to keep it. Write to{' '}
-          <a className="font-semibold text-navy underline" href={`mailto:${site.email}`}>{site.email}</a>.
+          <a className="font-semibold text-ink underline" href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
         <p>
           We also may share aggregate or anonymous information with third parties, including advertisers and
@@ -158,7 +158,7 @@ export default function Privacy() {
         </p>
         <p>
           If you have any questions about our use of cookies or other technologies, please email us at{' '}
-          <a className="font-semibold text-navy underline" href={`mailto:${site.email}`}>{site.email}</a>.
+          <a className="font-semibold text-ink underline" href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
       </div>
 
@@ -244,7 +244,7 @@ export default function Privacy() {
         <p>
           If you have questions about either this Privacy Policy (or your travel planning or purchases), please
           email us at{' '}
-          <a className="font-semibold text-navy underline" href={`mailto:${site.email}`}>{site.email}</a> or contact
+          <a className="font-semibold text-ink underline" href={`mailto:${site.email}`}>{site.email}</a> or contact
           us at {site.legalName}{/* · {site.address.join(', ')} · {site.phone} */}.
         </p>
         <p>This Privacy Policy is effective as of September 6th, 2026.</p>
